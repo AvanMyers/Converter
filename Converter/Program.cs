@@ -17,9 +17,7 @@ namespace Converter
             float rublesInWallet;
             float dollarsInWallet;
             float euroInWallet;
-
             float exchangeCurrncyCount;
-
             int rubToUsd = 1;
             int rubToEur = 2;
             int usdToRub = 10;
@@ -36,6 +34,10 @@ namespace Converter
             dollarsInWallet = Convert.ToSingle(Console.ReadLine());
             Console.WriteLine("Введите количество ваших евро");
             euroInWallet = Convert.ToSingle(Console.ReadLine());
+
+            string balance = "У вас на счету" + Convert.ToString(rublesInWallet) + "рублей,"
+                + Convert.ToString(dollarsInWallet) + "долларов," + Convert.ToString(euroInWallet) + "евро";
+
             Console.WriteLine($"{ComandConvertRubToUsd}: Перевод рублей в доллары\n \n" +
                 $"{ComandConvertRubToEur}: Перевод рублей в евро\n \n" +
                 $"{ComandConvertUsdToRub}: Перевод долларов в рубли\n \n" +
@@ -54,11 +56,12 @@ namespace Converter
                     case ComandConvertRubToUsd:
                         Console.WriteLine("Обмен рублей в доллары");
                         exchangeCurrncyCount = Convert.ToSingle(Console.ReadLine());
-                        if(rublesInWallet >= exchangeCurrncyCount)
+
+                        if (rublesInWallet >= exchangeCurrncyCount)
                         {
                             rublesInWallet -= exchangeCurrncyCount;
                             dollarsInWallet += exchangeCurrncyCount / rubToUsd;
-                            Console.WriteLine($"У вас на счету {rublesInWallet} рублей,{dollarsInWallet} долларов,{euroInWallet} евро");
+                            Console.WriteLine(balance);
                         }
                         else
                         {
@@ -68,11 +71,12 @@ namespace Converter
                     case ComandConvertRubToEur:
                         Console.WriteLine("Обмен рублей в евро");
                         exchangeCurrncyCount = Convert.ToSingle(Console.ReadLine());
+
                         if (rublesInWallet >= exchangeCurrncyCount)
                         {
                             rublesInWallet -= exchangeCurrncyCount;
                             euroInWallet += exchangeCurrncyCount / rubToEur;
-                            Console.WriteLine($"У вас на счету {rublesInWallet} рублей,{dollarsInWallet} долларов,{euroInWallet} евро");
+                            Console.WriteLine(balance);
                         }
                         else
                         {
@@ -82,11 +86,12 @@ namespace Converter
                     case ComandConvertUsdToRub:
                         Console.WriteLine("Обмен долларов в рубли");
                         exchangeCurrncyCount = Convert.ToSingle(Console.ReadLine());
+
                         if (dollarsInWallet >= exchangeCurrncyCount)
                         {
                             dollarsInWallet -= exchangeCurrncyCount;
                             rublesInWallet += exchangeCurrncyCount * usdToRub;
-                            Console.WriteLine($"У вас на счету {rublesInWallet} рублей,{dollarsInWallet} долларов,{euroInWallet} евро");
+                            Console.WriteLine(balance);
                         }
                         else
                         {
@@ -96,11 +101,12 @@ namespace Converter
                     case ComandConvertUsdToEur:
                         Console.WriteLine("Обмен долларов в евро");
                         exchangeCurrncyCount = Convert.ToSingle(Console.ReadLine());
+
                         if (dollarsInWallet >= exchangeCurrncyCount)
                         {
                             dollarsInWallet -= exchangeCurrncyCount;
                             euroInWallet += exchangeCurrncyCount / usdToEuro;
-                            Console.WriteLine($"У вас на счету {rublesInWallet} рублей,{dollarsInWallet} долларов,{euroInWallet} евро");
+                            Console.WriteLine(balance);
                         }
                         else
                         {
@@ -110,11 +116,12 @@ namespace Converter
                     case ComandConvertEurToRub:
                         Console.WriteLine("Обмен евро в рубли");
                         exchangeCurrncyCount = Convert.ToSingle(Console.ReadLine());
+
                         if (euroInWallet >= exchangeCurrncyCount)
                         {
                             euroInWallet -= exchangeCurrncyCount;
-                            rublesInWallet += exchangeCurrncyCount * rubToUsd;
-                            Console.WriteLine($"У вас на счету {rublesInWallet} рублей,{dollarsInWallet} долларов,{euroInWallet} евро");
+                            rublesInWallet += exchangeCurrncyCount * eurToRub;
+                            Console.WriteLine(balance);
                         }
                         else
                         {
@@ -124,11 +131,12 @@ namespace Converter
                     case ComandConvertEurToUsd:
                         Console.WriteLine("Обмен евро в доллары");
                         exchangeCurrncyCount = Convert.ToSingle(Console.ReadLine());
+
                         if (euroInWallet >= exchangeCurrncyCount)
                         {
                             euroInWallet -= exchangeCurrncyCount;
-                            dollarsInWallet += exchangeCurrncyCount / rubToUsd;
-                            Console.WriteLine($"У вас на счету {rublesInWallet} рублей,{dollarsInWallet} долларов,{euroInWallet} евро");
+                            dollarsInWallet += exchangeCurrncyCount / eurToUsd;
+                            Console.WriteLine(balance);
                         }
                         else
                         {
