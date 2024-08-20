@@ -60,7 +60,7 @@ namespace Converter
                         if (rublesInWallet >= exchangeCurrncyCount)
                         {
                             rublesInWallet -= exchangeCurrncyCount;
-                            dollarsInWallet += exchangeCurrncyCount / rubToUsd;
+                            dollarsInWallet += exchangeCurrncyCount * rubToUsd;
                             Console.WriteLine(balance);
                         }
                         else
@@ -75,7 +75,7 @@ namespace Converter
                         if (rublesInWallet >= exchangeCurrncyCount)
                         {
                             rublesInWallet -= exchangeCurrncyCount;
-                            euroInWallet += exchangeCurrncyCount / rubToEur;
+                            euroInWallet += exchangeCurrncyCount * rubToEur;
                             Console.WriteLine(balance);
                         }
                         else
@@ -105,7 +105,7 @@ namespace Converter
                         if (dollarsInWallet >= exchangeCurrncyCount)
                         {
                             dollarsInWallet -= exchangeCurrncyCount;
-                            euroInWallet += exchangeCurrncyCount / usdToEuro;
+                            euroInWallet += exchangeCurrncyCount * usdToEuro;
                             Console.WriteLine(balance);
                         }
                         else
@@ -135,7 +135,7 @@ namespace Converter
                         if (euroInWallet >= exchangeCurrncyCount)
                         {
                             euroInWallet -= exchangeCurrncyCount;
-                            dollarsInWallet += exchangeCurrncyCount / eurToUsd;
+                            dollarsInWallet += exchangeCurrncyCount * eurToUsd;
                             Console.WriteLine(balance);
                         }
                         else
